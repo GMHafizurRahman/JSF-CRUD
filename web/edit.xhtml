@@ -1,0 +1,56 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+    <h:head>
+        <title>edit Title</title>
+    </h:head>
+    <h:body>
+
+        <h:form>
+            <fieldset style="width: 500px">
+                <legend><h2 >Edit Records</h2></legend>
+                <table>
+                    <tbody>
+                        <tr>
+                            <td>User Name</td>
+                            <td> <h:inputText  value="#{editUser.name}" /></td>
+                        </tr>
+                        <tr>
+                            <td>Your Email</td>
+                            <td><h:inputText value="#{editUser.email}" /></td>
+                        </tr>
+                        <tr>
+                            <td>Password</td>
+                            <td><h:inputText value="#{editUser.password}" /></td>
+                        </tr>
+                        <tr>
+                            <td>Gender</td>
+                            <td>
+                                <h:selectOneRadio value="#{editUser.gender}">
+                                    <f:selectItem itemValue="M" itemLabel="Male" />
+                                    <f:selectItem itemValue="F" itemLabel="Female" />
+                                </h:selectOneRadio>
+
+                            </td>
+                        </tr>
+                        <tr>
+                            <td> Address</td>
+                            <td> <h:inputTextarea value="#{editUser.address}" /></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td><h:commandButton value="   Update  " action="#{c.update(editUser)}" ></h:commandButton></td>
+                        </tr>
+                    </tbody>
+                </table>  
+            </fieldset>
+        </h:form>
+        <br/>
+        <a href="index.xhtml">View User Records</a>
+
+    </h:body>
+</html>
+

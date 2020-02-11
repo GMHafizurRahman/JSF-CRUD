@@ -1,0 +1,53 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core" >
+    <h:head>
+        <title>Face let Title</title>
+        <style>
+            table, th, td {
+                border: 1px solid black;
+                border-collapse: collapse;
+            }
+        </style>
+    </h:head>
+    <h:body>        
+        <h:form>
+            <h2><h:outputText value="User Records"/></h2>
+            <h:dataTable value="#{c.usersList()}" var="m" >
+                <h:column>
+                    <f:facet name="header">ID</f:facet>
+                    <br/>
+                    <h:outputText value="#{m.id}"/>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Name</f:facet>
+                    <br/><h:outputText value="#{m.name}"/>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Email</f:facet>
+                    <br/><h:outputText value="#{m.email}"/>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Password</f:facet>
+                    <br/><h:outputText value="#{m.password}"/>
+                </h:column>
+                <h:column>
+                    <f:facet name="header"> Gender </f:facet>
+                    <br/><h:outputText value="#{m.gender}"/>
+                </h:column>
+                <h:column>
+                    <f:facet name="header"> Address </f:facet>
+                    <br/><h:outputText value="#{m.address}"/>
+                </h:column>
+                <h:column> 
+                    <f:facet name="header">Update/Delete</f:facet>
+                    <br/><h:commandButton action = "#{c.edit(m.id)}" value="Update" > </h:commandButton> | <h:commandButton action = "#{c.delete(m.id)}" value="Delete" ></h:commandButton>
+                </h:column>
+            </h:dataTable><br/>
+            <h:commandButton action = "create.xhtml?faces-redirect=true" value="Create New User" > </h:commandButton>
+        </h:form>    
+    </h:body>
+</html>
+
